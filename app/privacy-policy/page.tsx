@@ -108,7 +108,7 @@ export default function PrivacyPolicyPage() {
                 <li><strong>Opt-Out:</strong> Unsubscribe from marketing communications at any time using the link in our emails or by contacting us directly.</li>
                 <li><strong>Data Portability:</strong> Request your data in a structured, machine-readable format.</li>
               </ul>
-              <p>To exercise any of these rights, please contact us at <a href="mailto:care@lethiacares.in" className="font-semibold text-[#492e3b] hover:underline">care@lethiacares.in</a>.</p>
+              <p>To exercise any of these rights, please contact us at <a href="mailto:lethiacares@gmail.com" className="font-semibold text-[#492e3b] hover:underline">lethiacares@gmail.com</a>.</p>
             </PolicySection>
 
             <PolicySection title="7. Retention of Data">
@@ -141,10 +141,10 @@ export default function PrivacyPolicyPage() {
                 <p className="font-semibold text-[#1a1c1b]">Le Thia Cares Medical Aesthetics</p>
                 <p className="text-[#4e4448]">Anna Nagar, Chennai, Tamil Nadu</p>
                 <p>
-                  <a href="tel:+919876543210" className="text-[#492e3b] hover:underline">+91 98765 43210</a>
+                  <a href="tel:+918088009898" className="text-[#492e3b] hover:underline">+91 80880 09898</a>
                 </p>
                 <p>
-                  <a href="mailto:care@lethiacares.in" className="text-[#492e3b] hover:underline">care@lethiacares.in</a>
+                  <a href="mailto:lethiacares@gmail.com" className="text-[#492e3b] hover:underline">lethiacares@gmail.com</a>
                 </p>
               </div>
             </PolicySection>

@@ -80,7 +80,7 @@ export function HeroSection() {
               BOOK YOUR APPOINTMENT
             </a>
             <a
-              href="tel:+919876543210"
+              href="tel:+918088009898"
               className="flex items-center gap-2 rounded-[0.5rem] border border-[#492e3b4d] px-6 py-3 text-[12px] font-semibold tracking-[0.08em] text-[#492e3b] transition-all hover:bg-[#492e3b0d]"
             >
               <span className="material-symbols-outlined text-sm">call</span>

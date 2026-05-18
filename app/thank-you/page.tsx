@@ -95,7 +95,7 @@ export default function ThankYouPage() {
           {/* CTAs */}
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center md:mt-10">
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/918088009898"
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full items-center justify-center gap-2 rounded-[0.5rem] bg-[#25D366] px-8 py-3.5 text-[12px] font-semibold tracking-[0.08em] text-white transition-opacity hover:opacity-90 sm:w-auto"
@@ -117,7 +117,7 @@ export default function ThankYouPage() {
           {/* Contact nudge */}
           <p className="mt-10 text-[13px] text-[#4e444880]">
             Need immediate assistance?{' '}
-            <a href="tel:+919876543210" className="font-semibold text-[#492e3b] hover:underline">
+            <a href="tel:+918088009898" className="font-semibold text-[#492e3b] hover:underline">
               Call us now
             </a>
           </p>

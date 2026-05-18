@@ -43,7 +43,7 @@ export function OffersSection() {
         <a href="#consultation" className="w-full rounded-[0.5rem] bg-[#492e3b] px-10 py-4 text-center text-[12px] font-semibold tracking-[0.08em] text-white shadow-md transition-all hover:shadow-xl sm:w-auto">
           BOOK YOUR APPOINTMENT
         </a>
-        <a href="tel:+919876543210" className="flex w-full items-center justify-center gap-2 rounded-[0.5rem] border-2 border-[#71594e] px-10 py-4 text-[12px] font-semibold tracking-[0.08em] text-[#71594e] transition-all hover:bg-[#71594e] hover:text-white sm:w-auto">
+        <a href="tel:+918088009898" className="flex w-full items-center justify-center gap-2 rounded-[0.5rem] border-2 border-[#71594e] px-10 py-4 text-[12px] font-semibold tracking-[0.08em] text-[#71594e] transition-all hover:bg-[#71594e] hover:text-white sm:w-auto">
           <span className="material-symbols-outlined text-sm">call</span>
           CALL NOW
         </a>
