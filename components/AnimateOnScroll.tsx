@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-type Animation = 'fade-up' | 'fade-in' | 'fade-left' | 'fade-right' | 'scale-in';
+type Animation = 'fade-up' | 'fade-down' | 'fade-in' | 'fade-left' | 'fade-right' | 'scale-in';
 
 interface Props {
   children: React.ReactNode;
