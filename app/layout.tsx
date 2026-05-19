@@ -17,6 +17,13 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Le Thia Cares",
   description: "Le Thia Cares landing page replica",
+  icons: {
+    icon: [
+      { url: '/lefav.png', type: 'image/png' },
+    ],
+    apple: '/lefav.png',
+    shortcut: '/lefav.png',
+  },
 };
 
 export default function RootLayout({
