@@ -2,19 +2,19 @@ import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 
 const reviews = [
   {
-    initials: 'AK',
-    name: 'Ananya Kapoor',
-    text: `"Amazing experience at Le Thia Cares. The Anna Nagar branch is so luxurious and the treatments actually show results after the first session itself!"`,
+    initials: 'RM',
+    name: 'Rebekha Mahima',
+    text: `"I visited Le Thia Cares, Anna Nagar, for a facial and had a wonderful experience. The staff were polite, explained everything clearly,!"`,
   },
   {
-    initials: 'RS',
-    name: 'Rahul Sharma',
-    text: `"Best skin clinic in Chennai hands down. The technology they use is very advanced and the staff is very professional."`,
+    initials: 'TR',
+    name: 'T Rupan',
+    text: `"Great experience at Le Thia Cares! Professional staff, comfortable treatment, and excellent results. Highly recommended!"`,
   },
   {
-    initials: 'PM',
-    name: 'Priya Mani',
-    text: `"The Ice & Fire facial is magic! Highly recommend Le Thia Cares for anyone looking for authentic results in Chennai."`,
+    initials: 'BP',
+    name: 'Balapearl',
+    text: `"Excellent experience at Le Thia Cares! Warm and professional staff, clear guidance, and a clean, comfortable clinic. Highly recommended!"`,
   },
 ];
 

@@ -4,19 +4,34 @@ import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 
 const faqItems = [
   {
-    question: 'Are the treatments safe for all skin types?',
+    question: 'Which skin treatment is best for dull and tired-looking skin?',
     answer:
-      'Yes, all our treatments at Le Thia Cares are US FDA cleared and conducted by certified professionals, ensuring safety across all skin types including sensitive, oily, dry, and combination skin.',
+      'If your skin looks dull, dry, or tired even after regular skincare, treatments like HydraFacial, skin glow treatment, chemical peel, or skin rejuvenation treatment may help. At our skin clinic, the treatment is suggested after checking your skin type, concern, and sensitivity, so you get a proper glow plan instead of a random facial.',
   },
   {
-    question: 'How many sessions will I need?',
+    question: 'Can pigmentation and dark spots be reduced with skin treatments?',
     answer:
-      'Results vary by treatment and individual skin condition. Most clients see noticeable improvement after 2–3 sessions, while optimal results are typically achieved with a full course of 4–6 sessions. Our specialists will create a personalised treatment plan during your free consultation.',
+      'Yes, pigmentation treatment, chemical peels, laser toning, and skin brightening treatments can help improve the appearance of dark spots, tanning, patchy skin, and uneven skin tone. Pigmentation often comes back when treated only with creams, so a doctor-guided pigmentation correction plan is better for long-term skin improvement.',
   },
   {
-    question: 'Is there any downtime after the facials?',
+    question: 'Is chemical peel good for acne marks and uneven skin tone?',
     answer:
-      'Our signature facials require zero to minimal downtime. You can return to your daily activities immediately after most treatments. For certain advanced procedures, mild redness may appear for a few hours. Our experts will give you specific post-care instructions tailored to your chosen treatment.',
+      'A chemical peel treatment can help with acne marks, mild pigmentation, tanning, rough texture, and uneven skin tone. Many people try home remedies or parlour facials first, but acne marks often need a clinic-based approach. The peel type should be selected based on your skin concern, not used randomly.',
+  },
+  {
+    question: 'What is the best skin treatment before a wedding or function?',
+    answer:
+      'For brides, grooms, and event-ready skin, a bridal glow treatment, HydraFacial, chemical peel, tan removal treatment, or skin brightening treatment can be planned based on the event date. It is better to start your pre-wedding skin treatment at least 30–60 days before the function for a safer and more planned skin prep.',
+  },
+  {
+    question: 'How do I know which skin treatment is suitable for me?',
+    answer:
+      'The right skin treatment depends on your concern—pigmentation, acne marks, dull skin, tanning, open pores, facial hair, or uneven texture. A proper skin analysis at a skin clinic near you helps identify whether you need a chemical peel, HydraFacial, LHR, glutathione, or a customized skin correction plan.',
+  },
+  {
+    question: 'Can laser hair reduction help reduce repeated threading and waxing?',
+    answer:
+      'Yes, laser hair reduction treatment can help reduce the need for repeated threading, waxing, and shaving. It is commonly preferred for facial hair, underarms, hands, legs, and full-body grooming. If you are facing razor bumps, skin irritation, or last-minute grooming stress, LHR treatment at a skin clinic can be a practical option.',
   },
 ];
 

@@ -4,10 +4,19 @@ import { useRouter } from 'next/navigation';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 
 const fields = [
-  { key: 'name',     label: 'NAME',     placeholder: 'Your full name',  type: 'text', required: true  },
-  { key: 'phone',    label: 'NUMBER',   placeholder: '+91 00000 00000', type: 'tel',  required: true  },
+  { key: 'name',     label: 'NAME',     placeholder: 'Your full name',   type: 'text', required: true  },
+  { key: 'phone',    label: 'NUMBER',   placeholder: '+91 00000 00000',  type: 'tel',  required: true  },
   { key: 'location', label: 'LOCATION', placeholder: 'Preferred branch', type: 'text', required: false },
 ] as const;
+
+const SKIN_CONCERNS = [
+  'Acne',
+  'Acne Scar',
+  'Pigmentation',
+  'Melasma',
+  'Body Hair',
+  'Hair fall',
+];
 
 function isValidIndianPhone(raw: string) {
   const cleaned = raw.replace(/[\s\-\(\)]/g, '').replace(/^\+91/, '');
@@ -16,7 +25,7 @@ function isValidIndianPhone(raw: string) {
 
 export function LeadCaptureSection() {
   const router = useRouter();
-  const [form, setForm]       = useState({ name: '', phone: '', location: '' });
+  const [form, setForm]       = useState({ name: '', phone: '', location: '', skinConcern: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
 
@@ -34,7 +43,7 @@ export function LeadCaptureSection() {
       await fetch('/api/submit-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, treatment: form.skinConcern }),
       });
       router.push('/thank-you');
     } catch {
@@ -62,7 +71,7 @@ export function LeadCaptureSection() {
         </div>
 
         <form onSubmit={handleSubmit} noValidate>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
             {fields.map(({ key, label, placeholder, type, required }) => (
               <div key={key} className="flex flex-col space-y-2">
                 <label className="text-[12px] font-semibold leading-[1] tracking-[0.08em] text-[#4e4448]">
@@ -79,6 +88,27 @@ export function LeadCaptureSection() {
                 />
               </div>
             ))}
+
+            {/* Skin Concern */}
+            <div className="flex flex-col space-y-2">
+              <label className="text-[12px] font-semibold leading-[1] tracking-[0.08em] text-[#4e4448]">
+                SKIN CONCERN
+              </label>
+              <div className="relative">
+                <select
+                  value={form.skinConcern}
+                  onChange={(e) => setForm({ ...form, skinConcern: e.target.value })}
+                  className="w-full appearance-none border-b-2 border-[#d2c3c7] bg-transparent px-1 py-3 text-[16px] font-normal leading-[1.6] text-[#1a1c1b] outline-none transition-all focus:border-[#492e3b]"
+                  style={{ color: form.skinConcern ? '#1a1c1b' : '#80747880' }}
+                >
+                  <option value="" disabled hidden style={{ color: '#1a1c1b' }}>Select concern</option>
+                  {SKIN_CONCERNS.map((c) => (
+                    <option key={c} value={c} style={{ color: '#1a1c1b' }}>{c}</option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 text-[#492e3b] text-[10px]">▼</span>
+              </div>
+            </div>
           </div>
 
           {error && (
