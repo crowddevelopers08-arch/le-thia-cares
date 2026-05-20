@@ -1,4 +1,6 @@
+'use client';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+import { useState, useRef } from 'react';
 
 const reviews = [
   {
@@ -18,10 +20,48 @@ const reviews = [
   },
 ];
 
+function StarRow({ size = 'md' }: { size?: 'sm' | 'md' }) {
+  return (
+    <div className="flex text-[#492e3b]">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span
+          key={i}
+          className={`material-symbols-outlined ${size === 'sm' ? 'text-[14px] md:text-[16px]' : 'text-[20px] md:text-[24px]'}`}
+          style={{ fontVariationSettings: '"FILL" 1' }}
+        >
+          star
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function ReviewCard({ review }: { review: typeof reviews[number] }) {
+  return (
+    <div className="glass-card h-full rounded-[0.5rem] border border-white p-6 shadow-sm md:p-8">
+      <div className="flex items-center gap-4">
+        <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#62445233] text-[14px] font-bold text-[#492e3b] md:h-12 md:w-12">
+          {review.initials}
+        </div>
+        <div>
+          <h4 className="text-[15px] font-bold leading-[1.4] text-[#1a1c1b] md:text-[16px]">{review.name}</h4>
+          <StarRow size="sm" />
+        </div>
+      </div>
+      <p className="mt-5 text-[15px] italic leading-[1.6] text-[#4e4448] md:text-[16px]">{review.text}</p>
+    </div>
+  );
+}
+
 export function GoogleReviewsSection() {
+  const [current, setCurrent] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const prev = () => setCurrent(c => (c - 1 + reviews.length) % reviews.length);
+  const next = () => setCurrent(c => (c + 1) % reviews.length);
+
   return (
     <section id="reviews" className="bg-[#f4f3f1] px-4 py-10 sm:px-6 md:px-[80px] md:py-14 lg:py-20 xl:py-24">
-      {/* ── Content ── */}
       <div className="mx-auto max-w-[1280px]">
         <AnimateOnScroll animation="fade-down" className="mb-8 flex flex-col items-center justify-between gap-5 sm:flex-row md:mb-10 lg:mb-14">
           <div className="text-center sm:text-left">
@@ -30,13 +70,7 @@ export function GoogleReviewsSection() {
             </h2>
             <div className="mt-2 flex items-center justify-center gap-2 sm:justify-start">
               <span className="font-display text-[24px] font-medium leading-[1.3] text-[#492e3b] md:text-[28px]">4.9</span>
-              <div className="flex text-[#492e3b]">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} className="material-symbols-outlined text-[20px] md:text-[24px]" style={{ fontVariationSettings: '"FILL" 1' }}>
-                    star
-                  </span>
-                ))}
-              </div>
+              <StarRow />
             </div>
           </div>
           <button className="rounded-[0.5rem] border border-[#d2c3c7] bg-white px-6 py-3 text-[12px] font-semibold tracking-[0.08em] transition-all hover:bg-[#e3e2e0] md:px-8">
@@ -44,28 +78,50 @@ export function GoogleReviewsSection() {
           </button>
         </AnimateOnScroll>
 
-        {/* Staggered review cards */}
-        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mb-10 md:grid-cols-3 md:gap-8 lg:mb-14">
+        {/* Mobile carousel — hidden on sm+ */}
+        <div
+          className="mb-8 sm:hidden"
+          onTouchStart={e => { touchStartX.current = e.touches[0].clientX; }}
+          onTouchEnd={e => {
+            if (touchStartX.current === null) return;
+            const diff = touchStartX.current - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
+            touchStartX.current = null;
+          }}
+        >
+          <ReviewCard review={reviews[current]} />
+          <div className="mt-4 flex items-center justify-center gap-4">
+            <button
+              onClick={prev}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-[#492e3b] text-[#492e3b] transition-all hover:bg-[#492e3b] hover:text-white"
+              aria-label="Previous"
+            >
+              <span className="material-symbols-outlined text-[18px]">chevron_left</span>
+            </button>
+            <div className="flex gap-2">
+              {reviews.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-[#492e3b]' : 'w-2 bg-[#c9b2ba]'}`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={next}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-[#492e3b] text-[#492e3b] transition-all hover:bg-[#492e3b] hover:text-white"
+              aria-label="Next"
+            >
+              <span className="material-symbols-outlined text-[18px]">chevron_right</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop grid — hidden on mobile */}
+        <div className="mb-8 hidden gap-5 sm:grid sm:grid-cols-2 md:mb-10 md:grid-cols-3 md:gap-8 lg:mb-14">
           {reviews.map((review, index) => (
             <AnimateOnScroll key={review.name} animation="fade-up" delay={index * 120}>
-              <div className="glass-card h-full rounded-[0.5rem] border border-white p-6 shadow-sm md:p-8">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#62445233] text-[14px] font-bold text-[#492e3b] md:h-12 md:w-12">
-                    {review.initials}
-                  </div>
-                  <div>
-                    <h4 className="text-[15px] font-bold leading-[1.4] text-[#1a1c1b] md:text-[16px]">{review.name}</h4>
-                    <div className="flex text-[#492e3b]">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <span key={i} className="material-symbols-outlined text-[14px] md:text-[16px]" style={{ fontVariationSettings: '"FILL" 1' }}>
-                          star
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <p className="mt-5 text-[15px] italic leading-[1.6] text-[#4e4448] md:text-[16px]">{review.text}</p>
-              </div>
+              <ReviewCard review={review} />
             </AnimateOnScroll>
           ))}
         </div>

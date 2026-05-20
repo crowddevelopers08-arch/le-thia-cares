@@ -157,6 +157,74 @@ body {
 }
 
 /* =============================================
+   BUTTON ANIMATIONS
+   ============================================= */
+
+@keyframes btn-shimmer {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(220%) skewX(-15deg); }
+}
+
+/* Solid filled button */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.2s ease;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: translateX(-100%) skewX(-15deg);
+}
+.btn-primary:hover::before {
+  animation: btn-shimmer 0.55s ease forwards;
+}
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+.btn-primary:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.08s;
+}
+
+/* Outline / ghost button */
+.btn-outline {
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.2s ease,
+              color 0.2s ease;
+}
+.btn-outline:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+.btn-outline:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.08s;
+}
+
+/* Small icon circle button (social etc.) */
+.btn-icon {
+  transform: scale(0.9);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.2s ease,
+              color 0.2s ease;
+}
+.btn-icon:hover {
+  transform: translateY(-2px) scale(1.12);
+}
+.btn-icon:active {
+  transform: scale(0.93);
+  transition-duration: 0.08s;
+}
+
+/* =============================================
    ACCESSIBILITY: respect reduced-motion
    ============================================= */
 
@@ -182,4 +250,12 @@ body {
     transform: none;
     transition: none;
   }
+
+  .btn-primary,
+  .btn-outline,
+  .btn-icon {
+    transition: none;
+    transform: none;
+  }
+  .btn-primary::before { display: none; }
 }

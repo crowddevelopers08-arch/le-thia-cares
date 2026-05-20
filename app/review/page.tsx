@@ -42,7 +42,7 @@ export default function ReviewPage() {
           <div className="flex flex-col gap-3 sm:gap-4 lg:gap-5">
             <a href="https://g.page/r/CRxD_0ubmNDWEBM/review" target="_blank" rel="noopener noreferrer">
               <button
-                className="w-full cursor-pointer py-2 sm:py-3 lg:py-4 text-white text-base sm:text-lg lg:text-xl font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                className="btn-primary w-full cursor-pointer py-2 sm:py-3 lg:py-4 text-white text-base sm:text-lg lg:text-xl font-semibold rounded-lg shadow-lg"
                 style={{ backgroundColor: '#492e3b' }}
                 onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#3a2330')}
                 onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#492e3b')}
@@ -52,7 +52,7 @@ export default function ReviewPage() {
             </a>
             <a href="/client-feedback">
               <button
-                className="w-full cursor-pointer py-2 sm:py-3 lg:py-4 bg-transparent border-2 text-base sm:text-lg lg:text-xl font-semibold rounded-lg transition-all duration-200 transform hover:scale-105"
+                className="btn-outline w-full cursor-pointer py-2 sm:py-3 lg:py-4 bg-transparent border-2 text-base sm:text-lg lg:text-xl font-semibold rounded-lg"
                 style={{ borderColor: '#492e3b', color: '#492e3b' }}
                 onMouseEnter={e => {
                   e.currentTarget.style.backgroundColor = '#492e3b';

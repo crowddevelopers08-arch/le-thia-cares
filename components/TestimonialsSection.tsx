@@ -1,9 +1,21 @@
+'use client';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+import { useState, useRef } from 'react';
+
+const videos = [
+  'https://www.youtube.com/embed/9-tO5uF9MvE?si=vPjRsc_UeLh_0-9y&rel=0',
+  'https://www.youtube.com/embed/K8_YyP3z_qY?si=GzY_e6v_J_F3eA6n&rel=0',
+];
 
 export function TestimonialsSection() {
+  const [current, setCurrent] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const prev = () => setCurrent(c => (c - 1 + videos.length) % videos.length);
+  const next = () => setCurrent(c => (c + 1) % videos.length);
+
   return (
     <section id="testimonials" className="px-4 py-10 sm:px-6 md:px-[80px] md:py-14 lg:py-20 xl:py-24">
-      {/* ── Content ── */}
       <AnimateOnScroll animation="fade-down" className="mx-auto mb-8 max-w-[1280px] text-center md:mb-10 lg:mb-14">
         <h2 className="font-display text-[28px] font-medium leading-[1.2] text-[#1a1c1b] sm:text-[32px] md:text-[40px] lg:text-[48px]">
           Hear from our Real Clients
@@ -17,11 +29,56 @@ export function TestimonialsSection() {
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll animation="fade-up" delay={150} className="mx-auto mb-8 grid max-w-[1280px] grid-cols-1 gap-5 md:mb-10 md:grid-cols-2 md:gap-8 lg:mb-14">
-        {[
-          'https://www.youtube.com/embed/9-tO5uF9MvE?si=vPjRsc_UeLh_0-9y&rel=0',
-          'https://www.youtube.com/embed/K8_YyP3z_qY?si=GzY_e6v_J_F3eA6n&rel=0',
-        ].map((src, i) => (
+      {/* Mobile carousel — hidden on md+ */}
+      <div
+        className="mx-auto mb-8 max-w-[1280px] md:hidden"
+        onTouchStart={e => { touchStartX.current = e.touches[0].clientX; }}
+        onTouchEnd={e => {
+          if (touchStartX.current === null) return;
+          const diff = touchStartX.current - e.changedTouches[0].clientX;
+          if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
+          touchStartX.current = null;
+        }}
+      >
+        <div className="relative aspect-video overflow-hidden rounded-[0.5rem] bg-black shadow-lg">
+          <iframe
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="h-full w-full"
+            src={videos[current]}
+            title={`Skincare Testimonial ${current + 1}`}
+          />
+        </div>
+        <div className="mt-4 flex items-center justify-center gap-4">
+          <button
+            onClick={prev}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-[#492e3b] text-[#492e3b] transition-all hover:bg-[#492e3b] hover:text-white"
+            aria-label="Previous"
+          >
+            <span className="material-symbols-outlined text-[18px]">chevron_left</span>
+          </button>
+          <div className="flex gap-2">
+            {videos.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-[#492e3b]' : 'w-2 bg-[#c9b2ba]'}`}
+              />
+            ))}
+          </div>
+          <button
+            onClick={next}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-[#492e3b] text-[#492e3b] transition-all hover:bg-[#492e3b] hover:text-white"
+            aria-label="Next"
+          >
+            <span className="material-symbols-outlined text-[18px]">chevron_right</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop grid — hidden on mobile */}
+      <AnimateOnScroll animation="fade-up" delay={150} className="mx-auto mb-8 hidden max-w-[1280px] gap-5 md:mb-10 md:grid md:grid-cols-2 md:gap-8 lg:mb-14">
+        {videos.map((src, i) => (
           <div key={i} className="relative aspect-video overflow-hidden rounded-[0.5rem] bg-black shadow-lg">
             <iframe
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

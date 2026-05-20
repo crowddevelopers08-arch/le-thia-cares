@@ -172,7 +172,7 @@ export default function ClientFeedbackPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full cursor-pointer py-2 sm:py-2 md:py-3 text-white text-sm sm:text-base md:text-lg font-semibold rounded-lg disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] mt-3 sm:mt-4"
+              className="btn-primary w-full cursor-pointer py-2 sm:py-2 md:py-3 text-white text-sm sm:text-base md:text-lg font-semibold rounded-lg disabled:bg-gray-400 disabled:cursor-not-allowed mt-3 sm:mt-4"
               style={{ backgroundColor: isSubmitting ? undefined : BRAND }}
               onMouseEnter={e => { if (!isSubmitting) e.currentTarget.style.backgroundColor = BRAND_HOVER; }}
               onMouseLeave={e => { if (!isSubmitting) e.currentTarget.style.backgroundColor = BRAND; }}
@@ -185,7 +185,7 @@ export default function ClientFeedbackPage() {
           <button
             onClick={() => window.history.back()}
             disabled={isSubmitting}
-            className="w-full cursor-pointer py-2 sm:py-2 md:py-3 bg-transparent border-2 text-sm sm:text-base md:text-lg font-semibold rounded-lg disabled:border-gray-400 disabled:text-gray-400 disabled:hover:bg-transparent transition-all duration-200 transform hover:scale-[1.02] mt-2 sm:mt-3"
+            className="btn-outline w-full cursor-pointer py-2 sm:py-2 md:py-3 bg-transparent border-2 text-sm sm:text-base md:text-lg font-semibold rounded-lg disabled:border-gray-400 disabled:text-gray-400 disabled:hover:bg-transparent mt-2 sm:mt-3"
             style={{ borderColor: BRAND, color: BRAND }}
             onMouseEnter={e => {
               if (!isSubmitting) {

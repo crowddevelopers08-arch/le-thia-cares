@@ -83,7 +83,7 @@ export function FAQSection() {
         <AnimateOnScroll animation="fade-up" delay={300} className="mt-10 flex justify-center md:mt-12 lg:mt-16">
           <a
             href="#consultation"
-            className="rounded-[0.5rem] bg-[#492e3b] px-10 py-4 text-[12px] font-semibold tracking-[0.08em] text-white shadow-md transition-all hover:bg-[#492e3be6] active:scale-95"
+            className="btn-primary rounded-[0.5rem] bg-[#492e3b] px-10 py-4 text-[12px] font-semibold tracking-[0.08em] text-white hover:bg-[#492e3be6]"
           >
             BOOK YOUR APPOINTMENT
           </a>

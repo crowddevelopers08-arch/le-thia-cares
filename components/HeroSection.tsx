@@ -75,13 +75,13 @@ export function HeroSection() {
           <div className="hero-anim-ctas flex flex-wrap gap-3 pt-2">
             <a
               href="#consultation"
-              className="inline-flex items-center justify-center rounded-[0.5rem] bg-[#492e3b] px-6 py-3 text-[12px] font-semibold tracking-[0.08em] text-white shadow-lg transition-all hover:bg-[#492e3be6] active:scale-95"
+              className="btn-primary inline-flex items-center justify-center rounded-[0.5rem] bg-[#492e3b] px-6 py-3 text-[12px] font-semibold tracking-[0.08em] text-white hover:bg-[#492e3be6]"
             >
               BOOK YOUR APPOINTMENT
             </a>
             <a
               href="tel:+918088009898"
-              className="flex items-center gap-2 rounded-[0.5rem] border border-[#492e3b4d] px-6 py-3 text-[12px] font-semibold tracking-[0.08em] text-[#492e3b] transition-all hover:bg-[#492e3b0d]"
+              className="btn-outline flex items-center gap-2 rounded-[0.5rem] border border-[#492e3b4d] px-6 py-3 text-[12px] font-semibold tracking-[0.08em] text-[#492e3b] hover:bg-[#492e3b0d]"
             >
               <span className="material-symbols-outlined text-sm">call</span>
               CALL NOW

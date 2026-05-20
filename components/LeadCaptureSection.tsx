@@ -119,7 +119,7 @@ export function LeadCaptureSection() {
             <button
               type="submit"
               disabled={loading}
-              className="rounded-[0.5rem] bg-[#492e3b] px-10 py-4 text-[12px] font-semibold tracking-[0.08em] text-white shadow-lg transition-all hover:scale-105 active:scale-95 disabled:cursor-not-allowed disabled:opacity-70"
+              className="btn-primary rounded-[0.5rem] bg-[#492e3b] px-10 py-4 text-[12px] font-semibold tracking-[0.08em] text-white disabled:cursor-not-allowed disabled:opacity-70"
             >
               {loading ? 'SUBMITTING…' : 'BOOK YOUR APPOINTMENT'}
             </button>
