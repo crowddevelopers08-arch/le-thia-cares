@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { WaveText } from '@/components/WaveText';
 
 const navLinks = [
   { label: 'Treatments', href: '#services-offers' },
@@ -43,13 +44,13 @@ export function Header() {
             className="btn-outline hidden items-center gap-2 rounded-[0.5rem] border border-[#492e3b4d] px-4 py-2 text-[11px] font-semibold tracking-[0.08em] text-[#492e3b] hover:bg-[#492e3b0d] sm:flex md:px-6 md:py-2.5 md:text-[12px]"
           >
             <span className="material-symbols-outlined text-sm">call</span>
-            CALL NOW
+            <WaveText>CALL NOW</WaveText>
           </a>
           <a
             href="#consultation"
             className="btn-primary rounded-[0.5rem] bg-[#492e3b] px-3 py-2 text-[10px] font-semibold tracking-[0.06em] text-white hover:bg-[#492e3be6] sm:px-5 sm:py-2.5 sm:text-[11px] sm:tracking-[0.08em] md:px-8 md:py-3 md:text-[12px]"
           >
-            BOOK APPOINTMENT
+            <WaveText>BOOK APPOINTMENT</WaveText>
           </a>
           {/* Hamburger – visible below lg */}
           <button

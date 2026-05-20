@@ -1,7 +1,7 @@
 'use client';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const results = [
   {
@@ -37,9 +37,22 @@ const results = [
 export function BeforeAfterSection() {
   const [current, setCurrent] = useState(0);
   const touchStartX = useRef<number | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const prev = () => setCurrent((value) => (value - 1 + results.length) % results.length);
-  const next = () => setCurrent((value) => (value + 1) % results.length);
+  const startTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent(c => (c + 1) % results.length);
+    }, 3000);
+  }, []);
+
+  useEffect(() => {
+    startTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [startTimer]);
+
+  const prev = () => { setCurrent(c => (c - 1 + results.length) % results.length); startTimer(); };
+  const next = () => { setCurrent(c => (c + 1) % results.length); startTimer(); };
 
   return (
     <section id="showcase" className="bg-[#f4f3f1] px-4 py-10 sm:px-6 md:px-[80px] md:py-14 lg:py-20 xl:py-24">
@@ -88,7 +101,7 @@ export function BeforeAfterSection() {
           <div className="mt-4 flex items-center justify-center gap-4">
             <button
               onClick={prev}
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-[#492e3b] text-[#492e3b] transition-all hover:bg-[#492e3b] hover:text-white"
+              className="btn-icon flex h-8 w-8 items-center justify-center rounded-full border border-[#492e3b] text-[#492e3b] hover:bg-[#492e3b] hover:text-white"
               aria-label="Previous result"
             >
               <span className="material-symbols-outlined text-[18px]">chevron_left</span>
@@ -97,7 +110,7 @@ export function BeforeAfterSection() {
               {results.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrent(index)}
+                  onClick={() => { setCurrent(index); startTimer(); }}
                   className={`h-2 rounded-full transition-all duration-300 ${index === current ? 'w-6 bg-[#492e3b]' : 'w-2 bg-[#c9b2ba]'}`}
                   aria-label={`Show result ${index + 1}`}
                 />
@@ -105,7 +118,7 @@ export function BeforeAfterSection() {
             </div>
             <button
               onClick={next}
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-[#492e3b] text-[#492e3b] transition-all hover:bg-[#492e3b] hover:text-white"
+              className="btn-icon flex h-8 w-8 items-center justify-center rounded-full border border-[#492e3b] text-[#492e3b] hover:bg-[#492e3b] hover:text-white"
               aria-label="Next result"
             >
               <span className="material-symbols-outlined text-[18px]">chevron_right</span>

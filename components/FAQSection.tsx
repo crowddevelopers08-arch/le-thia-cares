@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+import { WaveText } from '@/components/WaveText';
 
 const faqItems = [
   {
@@ -85,7 +86,7 @@ export function FAQSection() {
             href="#consultation"
             className="btn-primary rounded-[0.5rem] bg-[#492e3b] px-10 py-4 text-[12px] font-semibold tracking-[0.08em] text-white hover:bg-[#492e3be6]"
           >
-            BOOK YOUR APPOINTMENT
+            <WaveText>BOOK YOUR APPOINTMENT</WaveText>
           </a>
         </AnimateOnScroll>
       </div>

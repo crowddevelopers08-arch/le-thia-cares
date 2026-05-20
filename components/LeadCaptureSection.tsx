@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { WaveText } from '@/components/WaveText';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 
 const fields = [
@@ -121,7 +122,7 @@ export function LeadCaptureSection() {
               disabled={loading}
               className="btn-primary rounded-[0.5rem] bg-[#492e3b] px-10 py-4 text-[12px] font-semibold tracking-[0.08em] text-white disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {loading ? 'SUBMITTING…' : 'BOOK YOUR APPOINTMENT'}
+              {loading ? 'SUBMITTING…' : <WaveText>BOOK YOUR APPOINTMENT</WaveText>}
             </button>
           </div>
         </form>

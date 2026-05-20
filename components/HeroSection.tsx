@@ -1,4 +1,5 @@
 import { InstagramVideoEmbed } from '@/components/InstagramVideoEmbed';
+import { WaveText } from '@/components/WaveText';
 
 export function HeroSection() {
   const featuredInstagramUrl = 'https://www.instagram.com/reels/DXJmh5Mj5r8/';
@@ -33,14 +34,14 @@ export function HeroSection() {
       <div className="relative z-[1] mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
 
         {/* Left column */}
-        <div className="flex flex-col space-y-4 md:space-y-6">
+        <div className="flex flex-col items-center text-center space-y-4 md:items-start md:text-left md:space-y-6">
           <span className="hero-anim-label text-[12px] font-semibold uppercase tracking-[0.08em] text-[#492e3b]">
             Book your appointments at
           </span>
           <h1 className="hero-anim-title font-display text-[28px] font-medium leading-[1.2] text-[#1a1c1b] sm:text-[36px] md:text-[52px] md:font-semibold md:leading-[1.1] md:tracking-[-0.02em] lg:text-[64px]">
             Best Skin Clinic in Anna Nagar
           </h1>
-          <p className="hero-anim-desc max-w-lg text-[16px] font-normal leading-[1.6] text-[#4e4448] md:text-[18px]">
+          <p className="hero-anim-desc mx-auto max-w-lg text-[16px] font-normal leading-[1.6] text-[#4e4448] md:mx-0 md:text-[18px]">
             Best offers with best Results in Anna Nagar.
           </p>
 
@@ -54,7 +55,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="hero-anim-badges flex flex-wrap gap-3 pt-2 md:gap-4 md:pt-4">
+          <div className="hero-anim-badges flex flex-wrap justify-center gap-3 pt-2 md:justify-start md:gap-4 md:pt-4">
             {[
               ['verified_user', 'US FDA Machines'],
               ['health_and_safety', '100% Safe'],
@@ -73,19 +74,19 @@ export function HeroSection() {
               </div>
             ))}
           </div>
-          <div className="hero-anim-ctas flex flex-wrap gap-3 pt-2">
+          <div className="hero-anim-ctas flex flex-wrap justify-center gap-3 pt-2 md:justify-start">
             <a
               href="#consultation"
               className="btn-primary inline-flex items-center justify-center rounded-[0.5rem] bg-[#492e3b] px-6 py-3 text-[12px] font-semibold tracking-[0.08em] text-white hover:bg-[#492e3be6]"
             >
-              BOOK YOUR APPOINTMENT
+              <WaveText>BOOK YOUR APPOINTMENT</WaveText>
             </a>
             <a
               href="tel:+918088009898"
               className="btn-outline flex items-center gap-2 rounded-[0.5rem] border border-[#492e3b4d] px-6 py-3 text-[12px] font-semibold tracking-[0.08em] text-[#492e3b] hover:bg-[#492e3b0d]"
             >
               <span className="material-symbols-outlined text-sm">call</span>
-              CALL NOW
+              <WaveText>CALL NOW</WaveText>
             </a>
           </div>
         </div>
