@@ -99,14 +99,14 @@ export function HeroSection() {
               title="Clinic Experience Reel"
             />
           </div>
-          <div className="glass-card absolute -bottom-4 -left-4 hidden rounded-[1rem] p-4 shadow-lg md:-bottom-6 md:-left-6 md:block md:p-6">
+          {/* <div className="glass-card absolute -bottom-4 -left-4 hidden rounded-[1rem] p-4 shadow-lg md:-bottom-6 md:-left-6 md:block md:p-6">
             <p className="font-display text-[24px] font-medium leading-[1.3] text-[#492e3b] md:text-[28px]">
               99%
             </p>
             <p className="text-[11px] font-semibold leading-[1] tracking-[0.08em] text-[#4e4448] md:text-[12px]">
               Success Rate
             </p>
-          </div>
+          </div> */}
         </div>
 
       </div>

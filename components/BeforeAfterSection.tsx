@@ -81,8 +81,8 @@ export function BeforeAfterSection() {
             touchStartX.current = null;
           }}
         >
-          <div className="group overflow-hidden rounded-[0.75rem] border border-white/60 bg-white p-2 shadow-xl">
-            <div className="relative h-[320px] w-full overflow-hidden rounded-[0.5rem]">
+          <div className="overflow-hidden rounded-[0.75rem] bg-white shadow-xl">
+            <div className="relative h-[320px] w-full overflow-hidden">
               <Image
                 src={results[current].src}
                 alt={results[current].alt}
@@ -92,7 +92,7 @@ export function BeforeAfterSection() {
                 className={results[current].imageClassName}
               />
             </div>
-            <div className="px-2 py-3 text-center">
+            <div className="px-3 py-3 text-center">
               <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#492e3b]">
                 Result {current + 1}
               </span>
@@ -128,8 +128,8 @@ export function BeforeAfterSection() {
 
         <div className="hidden grid-cols-4 gap-4 md:grid md:gap-4 lg:gap-6">
           {results.map((result, index) => (
-            <div key={result.src} className="group overflow-hidden rounded-[0.75rem] border border-white/60 bg-white p-2 shadow-xl">
-              <div className="relative h-[250px] w-full overflow-hidden rounded-[0.5rem] lg:h-[270px] xl:h-[290px]">
+            <div key={result.src} className="overflow-hidden rounded-[0.75rem] bg-white shadow-xl">
+              <div className="relative h-[250px] w-full overflow-hidden lg:h-[270px] xl:h-[290px]">
                 <Image
                   src={result.src}
                   alt={result.alt}
@@ -140,7 +140,7 @@ export function BeforeAfterSection() {
                   priority={index < 2}
                 />
               </div>
-              <div className="px-2 py-3 text-center">
+              <div className="px-3 py-3 text-center">
                 <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#492e3b]">
                   Result {index + 1}
                 </span>

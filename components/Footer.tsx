@@ -6,12 +6,13 @@ const treatments = [
   'Hydra Facial + Skin Polishing + Peel',
 ];
 
-const quickLinks = [
-  { label: 'Before & After Results', href: '#showcase' },
-  { label: 'Client Testimonials',    href: '#testimonials' },
-  { label: 'Google Reviews',         href: '#reviews' },
-  { label: 'FAQ',                    href: '#faq' },
-  { label: 'Book Appointment',       href: '#consultation' },
+const otherBranches = [
+  'Madurai',
+  'Kochi',
+  'Salem',
+  'Bangalore',
+  'Puducherry',
+  'Dimapur',
 ];
 
 export function Footer() {
@@ -66,20 +67,6 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Quick Links */}
-        <div className="space-y-4">
-          <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#492e3b]">Quick Links</h4>
-          <ul className="space-y-3">
-            {quickLinks.map((link) => (
-              <li key={link.label}>
-                <a className="text-[14px] text-[#4e4448] transition-all hover:text-[#492e3b] hover:underline" href={link.href}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* Contact – Chennai Branch */}
         <div className="space-y-4">
           <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#492e3b]">Chennai Branch</h4>
@@ -109,6 +96,19 @@ export function Footer() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Other Branches */}
+        <div className="space-y-4">
+          <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#492e3b]">Other Branches</h4>
+          <ul className="space-y-3">
+            {otherBranches.map((city) => (
+              <li key={city} className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-[16px] text-[#492e3b]">location_on</span>
+                <span className="text-[14px] text-[#4e4448]">{city}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </AnimateOnScroll>
 

@@ -1,31 +1,39 @@
 'use client';
-import { useEffect, useState } from 'react';
 
 export function WaveText({ children }: { children: string }) {
-  const [count, setCount] = useState(0);
-  const [gen, setGen] = useState(0);
   const chars = children.split('');
+  const N = chars.length;
+  const charMs = 55;
+  const holdMs = 1000;
+  const gapMs = 400;
+  const totalMs = N * charMs + holdMs + gapMs;
 
-  useEffect(() => {
-    const complete = count === chars.length;
-    const t = setTimeout(() => {
-      if (complete) {
-        setCount(0);
-        setGen(g => g + 1);
-      } else {
-        setCount(c => c + 1);
-      }
-    }, complete ? 1000 : 45);
-    return () => clearTimeout(t);
-  }, [count, chars.length]);
+  // Stable CSS id from text content
+  const id = children.replace(/[^a-zA-Z0-9]/g, '').toLowerCase().slice(0, 16);
+
+  // Generate one keyframe per character — pure CSS, zero JS after mount
+  const css = chars.map((_, i) => {
+    const appearPct = +((i * charMs / totalMs) * 100).toFixed(2);
+    const hidePct   = +(((N * charMs + holdMs) / totalMs) * 100).toFixed(2);
+    return (
+      `@keyframes wt_${id}_${i}{` +
+      `0%,${appearPct}%{opacity:0}` +
+      `${(appearPct + 0.01).toFixed(2)}%,${hidePct}%{opacity:1}` +
+      `${(hidePct + 0.01).toFixed(2)}%,100%{opacity:0}}`
+    );
+  }).join('');
 
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       {chars.map((char, i) => (
         <span
-          key={`${gen}-${i}`}
-          className={i < count ? 'letter-fire' : ''}
-          style={{ display: 'inline-block', opacity: i < count ? 1 : 0 }}
+          key={i}
+          style={{
+            display: 'inline-block',
+            willChange: 'opacity',
+            animation: `wt_${id}_${i} ${totalMs}ms linear infinite`,
+          }}
         >
           {char === ' ' ? ' ' : char}
         </span>
