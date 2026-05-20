@@ -1,4 +1,8 @@
+import { InstagramVideoEmbed } from '@/components/InstagramVideoEmbed';
+
 export function HeroSection() {
+  const featuredInstagramUrl = 'https://www.instagram.com/reels/DXJmh5Mj5r8/';
+
   return (
     <section
       id="services"
@@ -42,13 +46,10 @@ export function HeroSection() {
 
           {/* Video — mobile only (between description and badges) */}
           <div className="hero-anim-video md:hidden">
-            <div className="aspect-video overflow-hidden rounded-[1rem] border-4 border-white bg-black shadow-2xl">
-              <iframe
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="h-full w-full"
-                src="https://www.youtube.com/embed/PjS_uB21h4U?si=G_pIn3v_T_D3eA6n&rel=0"
-                title="Clinic Experience"
+            <div className="mx-auto w-[280px] overflow-hidden rounded-[1rem] border-4 border-white bg-white shadow-2xl" style={{ height: '500px' }}>
+              <InstagramVideoEmbed
+                url={featuredInstagramUrl}
+                title="Clinic Experience Reel"
               />
             </div>
           </div>
@@ -91,13 +92,10 @@ export function HeroSection() {
 
         {/* Right column – video (desktop only) */}
         <div className="hero-anim-video group relative hidden md:block">
-          <div className="aspect-video overflow-hidden rounded-[1.5rem] border-4 border-white bg-black shadow-2xl">
-            <iframe
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="h-full w-full"
-              src="https://www.youtube.com/embed/PjS_uB21h4U?si=G_pIn3v_T_D3eA6n&rel=0"
-              title="Clinic Experience"
+          <div className="mx-auto w-[320px] overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl" style={{ height: '560px' }}>
+            <InstagramVideoEmbed
+              url={featuredInstagramUrl}
+              title="Clinic Experience Reel"
             />
           </div>
           <div className="glass-card absolute -bottom-4 -left-4 hidden rounded-[1rem] p-4 shadow-lg md:-bottom-6 md:-left-6 md:block md:p-6">

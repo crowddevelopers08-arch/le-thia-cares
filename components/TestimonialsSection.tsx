@@ -1,10 +1,25 @@
 'use client';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+import { InstagramVideoEmbed } from '@/components/InstagramVideoEmbed';
 import { useState, useRef } from 'react';
 
 const videos = [
-  'https://www.youtube.com/embed/9-tO5uF9MvE?si=vPjRsc_UeLh_0-9y&rel=0',
-  'https://www.youtube.com/embed/K8_YyP3z_qY?si=GzY_e6v_J_F3eA6n&rel=0',
+  {
+    url: 'https://www.instagram.com/reels/DVfiPsZj8uF/',
+    title: 'Client Testimonial Reel 1',
+  },
+  {
+    url: 'https://www.instagram.com/reels/DUSQ6JiDx3R/',
+    title: 'Client Testimonial Reel 2',
+  },
+  {
+    url: 'https://www.instagram.com/reels/DUIcwsuj6mm/',
+    title: 'Client Testimonial Reel 3',
+  },
+  {
+    url: 'https://www.instagram.com/reels/DUGRdX4j47_/',
+    title: 'Client Testimonial Reel 4',
+  },
 ];
 
 export function TestimonialsSection() {
@@ -40,13 +55,10 @@ export function TestimonialsSection() {
           touchStartX.current = null;
         }}
       >
-        <div className="relative aspect-video overflow-hidden rounded-[0.5rem] bg-black shadow-lg">
-          <iframe
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="h-full w-full"
-            src={videos[current]}
-            title={`Skincare Testimonial ${current + 1}`}
+        <div className="relative mx-auto w-[320px] rounded-[0.5rem] bg-white shadow-lg" style={{ height: '560px' }}>
+          <InstagramVideoEmbed
+            url={videos[current].url}
+            title={videos[current].title}
           />
         </div>
         <div className="mt-4 flex items-center justify-center gap-4">
@@ -77,15 +89,12 @@ export function TestimonialsSection() {
       </div>
 
       {/* Desktop grid — hidden on mobile */}
-      <AnimateOnScroll animation="fade-up" delay={150} className="mx-auto mb-8 hidden max-w-[1280px] gap-5 md:mb-10 md:grid md:grid-cols-2 md:gap-8 lg:mb-14">
-        {videos.map((src, i) => (
-          <div key={i} className="relative aspect-video overflow-hidden rounded-[0.5rem] bg-black shadow-lg">
-            <iframe
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="h-full w-full"
-              src={src}
-              title={`Skincare Testimonial ${i + 1}`}
+      <AnimateOnScroll animation="fade-up" delay={150} className="mx-auto mb-8 hidden max-w-[1280px] gap-5 md:mb-10 md:grid md:grid-cols-2 md:gap-8 lg:mb-14 xl:grid-cols-4">
+        {videos.map((video, i) => (
+          <div key={i} className="relative rounded-[0.5rem] bg-white shadow-lg" style={{ height: '560px' }}>
+            <InstagramVideoEmbed
+              url={video.url}
+              title={video.title}
             />
           </div>
         ))}

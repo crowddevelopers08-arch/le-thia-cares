@@ -1,6 +1,46 @@
+'use client';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+import Image from 'next/image';
+import { useRef, useState } from 'react';
+
+const results = [
+  {
+    src: '/bf1.jpeg',
+    alt: 'Before and after pigmentation treatment result',
+    imageClassName: 'object-cover object-center',
+    width: 1600,
+    height: 1600,
+  },
+  {
+    src: '/bf22.png',
+    alt: 'Before and after skin brightening treatment result',
+    imageClassName: 'object-cover object-center',
+    width: 1254,
+    height: 1254,
+  },
+  {
+    src: '/bf33.png',
+    alt: 'Before and after acne scar treatment side profile result',
+    imageClassName: 'object-cover object-[center_38%]',
+    width: 1122,
+    height: 1348,
+  },
+  {
+    src: '/bf44.png',
+    alt: 'Before and after acne scar smoothing side profile result',
+    imageClassName: 'object-cover object-[center_42%]',
+    width: 1086,
+    height: 1397,
+  },
+];
 
 export function BeforeAfterSection() {
+  const [current, setCurrent] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const prev = () => setCurrent((value) => (value - 1 + results.length) % results.length);
+  const next = () => setCurrent((value) => (value + 1) % results.length);
+
   return (
     <section id="showcase" className="bg-[#f4f3f1] px-4 py-10 sm:px-6 md:px-[80px] md:py-14 lg:py-20 xl:py-24">
       {/* ── Content ── */}
@@ -13,13 +53,87 @@ export function BeforeAfterSection() {
         </h2>
       </AnimateOnScroll>
 
-      <AnimateOnScroll animation="scale-in" delay={150} className="mx-auto max-w-6xl">
-        <div className="group relative flex justify-center">
-          <img
-            alt="High-end medical aesthetic clinic results"
-            className="w-full rounded-[0.5rem] border border-white/50 object-cover shadow-xl transition-transform duration-700 group-hover:scale-[1.01]"
-            src="https://lh3.googleusercontent.com/aida/ADBb0uiAkkTHtey15cr6L0ldLTF53rFqpOhi7J5sc1bNSyfhI6AnoazSVQrS-chqb2o0_w8QPdVjYoBQrTRqL0gmxECW-DntRUTDije9kWjSf7WsCOvmXokCvU2nk1YFylbdwRqAzvH6SRxpolgwPdmdYCfAkd3-0nMV0v22SB7KQEkIHzC8JYBXhKRTS6ByHIS_o_HefH1m3w9Tj_Utk9_T7AgjQ5g5iiYiwmu_maNROf4HzZAxdtZpQEMcDH8"
-          />
+      <AnimateOnScroll animation="fade-in" delay={150} className="mx-auto max-w-[1400px]">
+        <div
+          className="md:hidden"
+          onTouchStart={(event) => {
+            touchStartX.current = event.touches[0].clientX;
+          }}
+          onTouchEnd={(event) => {
+            if (touchStartX.current === null) return;
+            const diff = touchStartX.current - event.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) {
+              diff > 0 ? next() : prev();
+            }
+            touchStartX.current = null;
+          }}
+        >
+          <div className="group overflow-hidden rounded-[0.75rem] border border-white/60 bg-white p-2 shadow-xl">
+            <div className="relative h-[320px] w-full overflow-hidden rounded-[0.5rem]">
+              <Image
+                src={results[current].src}
+                alt={results[current].alt}
+                fill
+                quality={100}
+                sizes="100vw"
+                className={results[current].imageClassName}
+              />
+            </div>
+            <div className="px-2 py-3 text-center">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#492e3b]">
+                Result {current + 1}
+              </span>
+            </div>
+          </div>
+          <div className="mt-4 flex items-center justify-center gap-4">
+            <button
+              onClick={prev}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-[#492e3b] text-[#492e3b] transition-all hover:bg-[#492e3b] hover:text-white"
+              aria-label="Previous result"
+            >
+              <span className="material-symbols-outlined text-[18px]">chevron_left</span>
+            </button>
+            <div className="flex gap-2">
+              {results.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrent(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${index === current ? 'w-6 bg-[#492e3b]' : 'w-2 bg-[#c9b2ba]'}`}
+                  aria-label={`Show result ${index + 1}`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={next}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-[#492e3b] text-[#492e3b] transition-all hover:bg-[#492e3b] hover:text-white"
+              aria-label="Next result"
+            >
+              <span className="material-symbols-outlined text-[18px]">chevron_right</span>
+            </button>
+          </div>
+        </div>
+
+        <div className="hidden grid-cols-4 gap-4 md:grid md:gap-4 lg:gap-6">
+          {results.map((result, index) => (
+            <div key={result.src} className="group overflow-hidden rounded-[0.75rem] border border-white/60 bg-white p-2 shadow-xl">
+              <div className="relative h-[250px] w-full overflow-hidden rounded-[0.5rem] lg:h-[270px] xl:h-[290px]">
+                <Image
+                  src={result.src}
+                  alt={result.alt}
+                  fill
+                  quality={100}
+                  sizes="(min-width: 1280px) 22vw, (min-width: 768px) 24vw, 100vw"
+                  className={result.imageClassName}
+                  priority={index < 2}
+                />
+              </div>
+              <div className="px-2 py-3 text-center">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#492e3b]">
+                  Result {index + 1}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </AnimateOnScroll>
     </section>
