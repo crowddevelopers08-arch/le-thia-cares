@@ -1,8 +1,57 @@
-import { InstagramVideoEmbed } from '@/components/InstagramVideoEmbed';
+'use client';
+import { useState, useRef } from 'react';
 import { WaveText } from '@/components/WaveText';
 
+const HERO_VIDEO_URL =
+  'https://res.cloudinary.com/djzexkvyv/video/upload/v1779340496/Chennai_cilent_2_ny4y6g.mp4';
+
 export function HeroSection() {
-  const featuredInstagramUrl = 'https://www.instagram.com/reels/DXJmh5Mj5r8/';
+  const [muted, setMuted] = useState(false);
+  const [playing, setPlaying] = useState(true);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    const next = !muted;
+    if (mobileVideoRef.current) mobileVideoRef.current.muted = next;
+    if (desktopVideoRef.current) desktopVideoRef.current.muted = next;
+    setMuted(next);
+  };
+
+  const togglePlay = () => {
+    const next = !playing;
+    if (next) {
+      mobileVideoRef.current?.play();
+      desktopVideoRef.current?.play();
+    } else {
+      mobileVideoRef.current?.pause();
+      desktopVideoRef.current?.pause();
+    }
+    setPlaying(next);
+  };
+
+  const VideoControls = () => (
+    <div className="absolute bottom-3 right-3 z-10 flex gap-2">
+      <button
+        onClick={togglePlay}
+        aria-label={playing ? 'Pause video' : 'Play video'}
+        className="flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition hover:bg-black/70"
+      >
+        <span className="material-symbols-outlined text-[20px]">
+          {playing ? 'pause' : 'play_arrow'}
+        </span>
+      </button>
+      <button
+        onClick={toggleMute}
+        aria-label={muted ? 'Unmute video' : 'Mute video'}
+        className="flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition hover:bg-black/70"
+      >
+        <span className="material-symbols-outlined text-[20px]">
+          {muted ? 'volume_off' : 'volume_up'}
+        </span>
+      </button>
+    </div>
+  );
 
   return (
     <section
@@ -45,13 +94,18 @@ export function HeroSection() {
             Best offers with best Results in Anna Nagar.
           </p>
 
-          {/* Video — mobile only (between description and badges) */}
+          {/* Video — mobile only */}
           <div className="hero-anim-video md:hidden">
-            <div className="mx-auto w-[280px] overflow-hidden rounded-[1rem] border-4 border-white bg-white shadow-2xl" style={{ height: '500px' }}>
-              <InstagramVideoEmbed
-                url={featuredInstagramUrl}
-                title="Clinic Experience Reel"
+            <div className="relative mx-auto w-[280px] overflow-hidden rounded-[1rem] border-4 border-white bg-black shadow-2xl" style={{ height: '500px' }}>
+              <video
+                ref={mobileVideoRef}
+                src={HERO_VIDEO_URL}
+                autoPlay
+                loop
+                playsInline
+                className="w-full h-full object-cover"
               />
+              <VideoControls />
             </div>
           </div>
 
@@ -93,20 +147,17 @@ export function HeroSection() {
 
         {/* Right column – video (desktop only) */}
         <div className="hero-anim-video group relative hidden md:block">
-          <div className="mx-auto w-[320px] overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl" style={{ height: '560px' }}>
-            <InstagramVideoEmbed
-              url={featuredInstagramUrl}
-              title="Clinic Experience Reel"
+          <div className="relative mx-auto w-[320px] overflow-hidden rounded-[1.5rem] border-4 border-white bg-black shadow-2xl" style={{ height: '560px' }}>
+            <video
+              ref={desktopVideoRef}
+              src={HERO_VIDEO_URL}
+              autoPlay
+              loop
+              playsInline
+              className="w-full h-full object-cover"
             />
+            <VideoControls />
           </div>
-          {/* <div className="glass-card absolute -bottom-4 -left-4 hidden rounded-[1rem] p-4 shadow-lg md:-bottom-6 md:-left-6 md:block md:p-6">
-            <p className="font-display text-[24px] font-medium leading-[1.3] text-[#492e3b] md:text-[28px]">
-              99%
-            </p>
-            <p className="text-[11px] font-semibold leading-[1] tracking-[0.08em] text-[#4e4448] md:text-[12px]">
-              Success Rate
-            </p>
-          </div> */}
         </div>
 
       </div>

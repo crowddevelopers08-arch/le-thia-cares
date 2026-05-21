@@ -1,25 +1,24 @@
 'use client';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
-import { InstagramVideoEmbed } from '@/components/InstagramVideoEmbed';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { WaveText } from '@/components/WaveText';
 
 const videos = [
   {
-    url: 'https://www.instagram.com/reels/DVfiPsZj8uF/',
-    title: 'Client Testimonial Reel 1',
+    url: 'https://res.cloudinary.com/djzexkvyv/video/upload/v1779340499/Chennai_cilent_1_hl2fzf.mp4',
+    title: 'Chennai Client Testimonial 1',
   },
   {
-    url: 'https://www.instagram.com/reels/DUSQ6JiDx3R/',
-    title: 'Client Testimonial Reel 2',
+    url: 'https://res.cloudinary.com/djzexkvyv/video/upload/v1779340496/Chennai_cilent_2_ny4y6g.mp4',
+    title: 'Chennai Client Testimonial 2',
   },
   {
-    url: 'https://www.instagram.com/reels/DUIcwsuj6mm/',
-    title: 'Client Testimonial Reel 3',
+    url: 'https://res.cloudinary.com/djzexkvyv/video/upload/v1779340498/Tiruppur_Feedback_Video_is8xg1.mp4',
+    title: 'Tiruppur Client Feedback',
   },
   {
-    url: 'https://www.instagram.com/reels/DUGRdX4j47_/',
-    title: 'Client Testimonial Reel 4',
+    url: 'https://res.cloudinary.com/djzexkvyv/video/upload/v1779340497/Tiruppur_Happy_Customer_Video_x6l6wk.mp4',
+    title: 'Tiruppur Happy Customer',
   },
 ];
 
@@ -69,10 +68,14 @@ export function TestimonialsSection() {
           touchStartX.current = null;
         }}
       >
-        <div className="relative mx-auto w-[320px] rounded-[0.5rem] bg-white shadow-lg" style={{ height: '560px' }}>
-          <InstagramVideoEmbed
-            url={videos[current].url}
-            title={videos[current].title}
+        <div className="relative mx-auto w-[320px] overflow-hidden rounded-[0.5rem] bg-black shadow-lg" style={{ height: '560px' }}>
+          <video
+            key={videos[current].url}
+            src={videos[current].url}
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
           />
         </div>
         <div className="mt-4 flex items-center justify-center gap-4">
@@ -105,10 +108,13 @@ export function TestimonialsSection() {
       {/* Desktop grid — hidden on mobile */}
       <AnimateOnScroll animation="fade-up" delay={150} className="mx-auto mb-8 hidden max-w-[1280px] gap-5 md:mb-10 md:grid md:grid-cols-2 md:gap-8 lg:mb-14 xl:grid-cols-4">
         {videos.map((video, i) => (
-          <div key={i} className="relative rounded-[0.5rem] bg-white shadow-lg" style={{ height: '560px' }}>
-            <InstagramVideoEmbed
-              url={video.url}
-              title={video.title}
+          <div key={i} className="relative overflow-hidden rounded-[0.5rem] bg-black shadow-lg" style={{ height: '560px' }}>
+            <video
+              src={video.url}
+              controls
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover"
             />
           </div>
         ))}
