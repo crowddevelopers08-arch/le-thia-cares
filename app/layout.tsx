@@ -19,10 +19,10 @@ export const metadata: Metadata = {
   description: "Le Thia Cares landing page replica",
   icons: {
     icon: [
-      { url: '/lefav.png', type: 'image/png' },
+      { url: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346399/lefav_pijz4a.png', type: 'image/png' },
     ],
-    apple: '/lefav.png',
-    shortcut: '/lefav.png',
+    apple: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346399/lefav_pijz4a.png',
+    shortcut: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346399/lefav_pijz4a.png',
   },
 };
 

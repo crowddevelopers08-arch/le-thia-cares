@@ -5,10 +5,10 @@ import { WaveText } from '@/components/WaveText';
 import { useState, useEffect, useRef } from 'react';
 
 const offerImages = [
-  { src: '/1st.png', alt: 'Ice & Fire Facial – ₹5499' },
-  { src: '/2nd.png', alt: 'Red Carpet Peel – ₹4499' },
-  { src: '/3rd.png', alt: 'Hydra Facial + Skin Polishing + Peel – ₹4999' },
-  { src: '/4th.png', alt: 'Gfc pro+ Derma pen – ₹4999' },
+  { src: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346395/1st_aj8q7q.png', alt: 'Ice & Fire Facial – ₹5499' },
+  { src: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346395/2nd_yuciix.png', alt: 'Red Carpet Peel – ₹4499' },
+  { src: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346395/3rd_oeh1b2.png', alt: 'Hydra Facial + Skin Polishing + Peel – ₹4999' },
+  { src: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346395/4th_gbbpyp.png', alt: 'Gfc pro+ Derma pen – ₹4999' },
 ];
 
 const SIX_DAYS_MS = 6 * 24 * 60 * 60 * 1000;

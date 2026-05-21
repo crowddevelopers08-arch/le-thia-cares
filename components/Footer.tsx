@@ -4,6 +4,7 @@ const treatments = [
   'Ice & Fire Facial',
   'Red Carpet Peel',
   'Hydra Facial + Skin Polishing + Peel',
+  'Gfc pro+ Derma pen',
 ];
 
 const otherBranches = [

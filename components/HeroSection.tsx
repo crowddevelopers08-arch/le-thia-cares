@@ -62,7 +62,7 @@ export function HeroSection() {
       <div
         className="absolute inset-0 md:hidden"
         style={{
-          backgroundImage: "url('/bgmobthis.png')",
+          backgroundImage: "url('https://res.cloudinary.com/djzexkvyv/image/upload/v1779346395/bgmobthis_c4hunu.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
@@ -72,7 +72,7 @@ export function HeroSection() {
       <div
         className="absolute inset-0 hidden md:block"
         style={{
-          backgroundImage: "url('/bgthia.png')",
+          backgroundImage: "url('https://res.cloudinary.com/djzexkvyv/image/upload/v1779346395/bgthia_edzoyj.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

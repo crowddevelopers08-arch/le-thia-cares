@@ -5,28 +5,28 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 const results = [
   {
-    src: '/bf1.jpeg',
+    src: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346399/Eye1_nuatbd.png',
     alt: 'Before and after pigmentation treatment result',
     imageClassName: 'object-cover object-center',
     width: 1600,
     height: 1600,
   },
   {
-    src: '/bf22.png',
+    src: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346399/Eye2_qj1s4e.png',
     alt: 'Before and after skin brightening treatment result',
     imageClassName: 'object-cover object-center',
     width: 1254,
     height: 1254,
   },
   {
-    src: '/bf33.png',
+    src: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346400/Eye3_jca6ik.png',
     alt: 'Before and after acne scar treatment side profile result',
     imageClassName: 'object-cover object-[center_38%]',
     width: 1122,
     height: 1348,
   },
   {
-    src: '/bf44.png',
+    src: 'https://res.cloudinary.com/djzexkvyv/image/upload/v1779346400/Eye4_ck61bm.png',
     alt: 'Before and after acne scar smoothing side profile result',
     imageClassName: 'object-cover object-[center_42%]',
     width: 1086,
