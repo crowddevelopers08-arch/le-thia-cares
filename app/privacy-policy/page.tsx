@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 
 export const metadata = {
   title: 'Privacy Policy | Le Thia Cares',
@@ -141,7 +141,7 @@ export default function PrivacyPolicyPage() {
                 <p className="font-semibold text-[#1a1c1b]">Le Thia Cares Medical Aesthetics</p>
                 <p className="text-[#4e4448]">Anna Nagar, Chennai, Tamil Nadu</p>
                 <p>
-                  <a href="tel:+918088009898" className="text-[#492e3b] hover:underline">+91 80880 09898</a>
+                  <a href="tel:+919342471839" className="text-[#492e3b] hover:underline">+91 93424 71839</a>
                 </p>
                 <p>
                   <a href="mailto:lethiacares@gmail.com" className="text-[#492e3b] hover:underline">lethiacares@gmail.com</a>

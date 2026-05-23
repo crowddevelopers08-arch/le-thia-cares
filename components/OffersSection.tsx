@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import Image from 'next/image';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 import { WaveText } from '@/components/WaveText';
@@ -299,7 +299,7 @@ export function OffersSection() {
           style={{ background: 'linear-gradient(135deg, #b31000, #ff4500)', boxShadow: '0 4px 20px rgba(255,69,0,0.5)' }}>
           <WaveText>BOOK YOUR APPOINTMENT</WaveText>
         </a>
-        <a href="tel:+918088009898" className="btn-outline flex w-full items-center justify-center gap-2 rounded-[0.5rem] border-2 px-10 py-4 text-[12px] font-semibold tracking-[0.08em] sm:w-auto"
+        <a href="tel:+919342471839" className="btn-outline flex w-full items-center justify-center gap-2 rounded-[0.5rem] border-2 px-10 py-4 text-[12px] font-semibold tracking-[0.08em] sm:w-auto"
           style={{ borderColor: '#ff6b00', color: '#ff9955' }}>
           <span className="material-symbols-outlined text-sm">call</span>
           <WaveText>CALL NOW</WaveText>

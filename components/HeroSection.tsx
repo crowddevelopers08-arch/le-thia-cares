@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState, useRef } from 'react';
 import { WaveText } from '@/components/WaveText';
 
@@ -91,7 +91,7 @@ export function HeroSection() {
             Best Skin Clinic in Anna Nagar
           </h1>
           <p className="hero-anim-desc mx-auto max-w-lg text-[16px] font-normal leading-[1.6] text-[#4e4448] md:mx-0 md:text-[18px]">
-            Chennai, we provide quality skin treatments at affordable prices without compromising on care and safety.
+            we provide quality skin treatments at affordable prices without compromising on care and safety.
           </p>
 
           {/* Video — mobile only */}
@@ -136,7 +136,7 @@ export function HeroSection() {
               <WaveText>BOOK YOUR APPOINTMENT</WaveText>
             </a>
             <a
-              href="tel:+918088009898"
+              href="tel:+919342471839"
               className="btn-outline flex items-center gap-2 rounded-[0.5rem] border border-[#492e3b4d] px-6 py-3 text-[12px] font-semibold tracking-[0.08em] text-[#492e3b] hover:bg-[#492e3b0d]"
             >
               <span className="material-symbols-outlined text-sm">call</span>

@@ -1,4 +1,4 @@
-export function MapSection() {
+﻿export function MapSection() {
   return (
     <section className="w-full">
       {/* Info bar */}
@@ -14,11 +14,11 @@ export function MapSection() {
           </div>
           <div className="flex flex-wrap gap-4">
             <a
-              href="tel:+918088009898"
+              href="tel:+919342471839"
               className="flex items-center gap-2 text-[14px] font-semibold text-white transition-opacity hover:opacity-80"
             >
               <span className="material-symbols-outlined text-[18px]">call</span>
-              +91 80880 09898
+              +91 93424 71839
             </a>
             <a
               href="https://maps.app.goo.gl/tnJeT6aFb4KVhGct7"

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 import { WaveText } from '@/components/WaveText';
 
@@ -40,7 +40,7 @@ export function Header() {
         {/* CTA buttons + hamburger */}
         <div className="flex items-center gap-2 sm:gap-4 md:gap-5">
           <a
-            href="tel:+918088009898"
+            href="tel:+919342471839"
             className="btn-outline hidden items-center gap-2 rounded-[0.5rem] border border-[#492e3b4d] px-4 py-2 text-[11px] font-semibold tracking-[0.08em] text-[#492e3b] hover:bg-[#492e3b0d] sm:flex md:px-6 md:py-2.5 md:text-[12px]"
           >
             <span className="material-symbols-outlined text-sm">call</span>
@@ -80,7 +80,7 @@ export function Header() {
               </a>
             ))}
             <a
-              href="tel:+918088009898"
+              href="tel:+919342471839"
               className="mt-1 flex items-center gap-2 rounded-md px-3 py-2.5 text-[14px] font-semibold tracking-[0.06em] text-[#492e3b] hover:bg-[#492e3b0d]"
               onClick={() => setMenuOpen(false)}
             >

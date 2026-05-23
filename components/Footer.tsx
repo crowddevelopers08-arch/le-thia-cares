@@ -1,4 +1,4 @@
-import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+﻿import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 
 const treatments = [
   'Ice & Fire Facial',
@@ -8,9 +8,8 @@ const treatments = [
 ];
 
 const otherBranches = [
-  'Madurai',
-  'Anna Nagar, Kalavasal, Chennai',
-  'Anna Nagar, Chennai',
+  'Madurai (Anna Nagar, Kalavasal)',
+  'Chennai (Anna Nagar)',
   'Salem',
   'Erode',
   'Tirupur',
@@ -73,10 +72,10 @@ export function Footer() {
                 Anna Nagar, Chennai,<br />Tamil Nadu
               </span>
             </div>
-            <a href="tel:+918088009898" className="group flex items-center gap-3">
+            <a href="tel:+919342471839" className="group flex items-center gap-3">
               <span className="material-symbols-outlined text-[20px] text-[#492e3b]">call</span>
               <span className="text-[15px] font-bold text-[#1a1c1b] transition-colors group-hover:text-[#492e3b]">
-                +91 80880 09898
+                +91 93424 71839
               </span>
             </a>
             <a href="mailto:lethiacares@gmail.com" className="group flex items-center gap-3">
