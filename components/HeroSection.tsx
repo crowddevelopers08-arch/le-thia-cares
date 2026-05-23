@@ -56,7 +56,7 @@ export function HeroSection() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden px-4 pb-8 pt-10 sm:px-6 md:px-[80px] md:pb-24 md:pt-16 lg:pb-32 lg:pt-20 xl:pb-40 xl:pt-24"
+      className="relative overflow-hidden px-4 pb-8 pt-10 sm:px-6 md:px-[80px] md:pb-24 md:pt-16 lg:pb-16 lg:pt-10 xl:pb-20 xl:pt-12"
     >
       {/* Mobile background (portrait) */}
       <div
@@ -91,12 +91,12 @@ export function HeroSection() {
             Best Skin Clinic in Anna Nagar
           </h1>
           <p className="hero-anim-desc mx-auto max-w-lg text-[16px] font-normal leading-[1.6] text-[#4e4448] md:mx-0 md:text-[18px]">
-            Best offers with best Results in Anna Nagar.
+            Chennai, we provide quality skin treatments at affordable prices without compromising on care and safety.
           </p>
 
           {/* Video — mobile only */}
-          <div className="hero-anim-video md:hidden">
-            <div className="relative mx-auto w-[280px] overflow-hidden rounded-[1rem] border-4 border-white bg-black shadow-2xl" style={{ height: '500px' }}>
+          <div className="hero-anim-video md:hidden w-full">
+            <div className="relative w-full aspect-[9/16] overflow-hidden rounded-2xl bg-black shadow-2xl">
               <video
                 ref={mobileVideoRef}
                 src={HERO_VIDEO_URL}
@@ -146,7 +146,7 @@ export function HeroSection() {
         </div>
 
         {/* Right column – video (desktop only) */}
-        <div className="hero-anim-video group relative hidden md:block">
+        <div className="hero-anim-video group relative hidden md:flex md:items-center md:justify-center">
           <div className="relative mx-auto w-[320px] overflow-hidden rounded-[1.5rem] border-4 border-white bg-black shadow-2xl" style={{ height: '560px' }}>
             <video
               ref={desktopVideoRef}

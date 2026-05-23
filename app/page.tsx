@@ -7,6 +7,7 @@ import { HeroSection } from '@/components/HeroSection';
 import { LeadCaptureSection } from '@/components/LeadCaptureSection';
 import { OffersSection } from '@/components/OffersSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
+import { TreatmentsSection } from '@/components/TreatmentsSection';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <main className="mt-[70px] md:mt-20">
         <HeroSection />
         <LeadCaptureSection />
+        <TreatmentsSection />
         <BeforeAfterSection />
         <OffersSection />
         <TestimonialsSection />

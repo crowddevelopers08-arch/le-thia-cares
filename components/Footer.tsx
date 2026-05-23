@@ -9,11 +9,11 @@ const treatments = [
 
 const otherBranches = [
   'Madurai',
-  'Kochi',
+  'Anna Nagar, Kalavasal, Chennai',
+  'Anna Nagar, Chennai',
   'Salem',
-  'Bangalore',
-  'Puducherry',
-  'Dimapur',
+  'Erode',
+  'Tirupur',
 ];
 
 export function Footer() {
@@ -30,7 +30,7 @@ export function Footer() {
             Skin · Hair · Slimming · Laser
           </p>
           <p className="max-w-xs text-[14px] leading-[1.7] text-[#4e4448]">
-            US FDA-cleared aesthetic treatments delivered with clinical precision and luxury care. 1,00,000+ happy clients across Chennai.
+            Chennai, we provide quality skin treatments at affordable prices without compromising on care and safety.
           </p>
           {/* Social */}
           <div className="flex gap-3">
