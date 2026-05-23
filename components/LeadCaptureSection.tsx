@@ -7,7 +7,7 @@ import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 const fields = [
   { key: 'name',     label: 'NAME',     placeholder: 'Your full name',   type: 'text', required: true  },
   { key: 'phone',    label: 'NUMBER',   placeholder: '+91 00000 00000',  type: 'tel',  required: true  },
-  { key: 'location', label: 'LOCATION', placeholder: 'Preferred branch', type: 'text', required: false },
+  { key: 'location', label: 'LOCATION', placeholder: 'Preferred location', type: 'text', required: false },
 ] as const;
 
 const SKIN_CONCERNS = [
