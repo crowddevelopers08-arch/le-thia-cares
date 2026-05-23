@@ -6,7 +6,7 @@ const HERO_VIDEO_URL =
   'https://res.cloudinary.com/djzexkvyv/video/upload/v1779340496/Chennai_cilent_2_ny4y6g.mp4';
 
 export function HeroSection() {
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState(true);
   const [playing, setPlaying] = useState(true);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
@@ -103,6 +103,7 @@ export function HeroSection() {
                 autoPlay
                 loop
                 playsInline
+                muted
                 className="w-full h-full object-cover"
               />
               <VideoControls />
@@ -154,6 +155,7 @@ export function HeroSection() {
               autoPlay
               loop
               playsInline
+              muted
               className="w-full h-full object-cover"
             />
             <VideoControls />
