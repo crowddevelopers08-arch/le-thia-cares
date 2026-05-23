@@ -9,6 +9,7 @@ interface LeadInput {
   location?: string;
   treatment?: string;
   source?: string;
+  pageUrl?: string;
 }
 
 function isValidIndianPhone(raw: string) {
@@ -31,7 +32,7 @@ async function appendToGoogleSheet(data: LeadInput) {
     phone: data.phone.replace(/[\s\-\(\)]/g, '').replace(/^\+91/, ''),
     location: data.location?.trim() || 'Not specified',
     treatment: data.treatment?.trim() || 'Not specified',
-    source: data.source || 'Le Thia Cares – Website Form',
+    source: data.pageUrl || data.source || 'Le Thia Cares – Website Form',
   };
 
   const res = await fetch(endpoint, {
@@ -82,7 +83,7 @@ async function sendToTeleCRM(data: LeadInput) {
       Age: '',
     },
     actions: [
-      { type: 'SYSTEM_NOTE', text: `Lead Source: ${data.source || 'le-thia-cares-website'}` },
+      { type: 'SYSTEM_NOTE', text: `Lead Source: ${data.pageUrl || data.source || 'le-thia-cares-website'}` },
       { type: 'SYSTEM_NOTE', text: `Treatment: ${data.treatment || 'Not specified'}` },
       { type: 'SYSTEM_NOTE', text: `Location: ${data.location || 'Anna Nagar, Chennai'}` },
       { type: 'SYSTEM_NOTE', text: 'Consent Given: Yes' },
@@ -130,7 +131,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid request body.' }, { status: 400 });
   }
 
-  const { name = '', phone = '', location = '', treatment = '' } = body;
+  const { name = '', phone = '', location = '', treatment = '', pageUrl = '' } = body;
 
   // Validation
   if (!name.trim())
@@ -148,6 +149,7 @@ export async function POST(req: NextRequest) {
   const leadData: LeadInput = {
     name, phone, location, treatment,
     source: 'le-thia-cares-website',
+    pageUrl: pageUrl || undefined,
   };
 
   // Fire both in parallel — one failing never blocks the other

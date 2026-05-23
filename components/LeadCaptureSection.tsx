@@ -44,7 +44,7 @@ export function LeadCaptureSection() {
       await fetch('/api/submit-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, treatment: form.skinConcern }),
+        body: JSON.stringify({ ...form, treatment: form.skinConcern, pageUrl: window.location.href }),
       });
       router.push('/thank-you');
     } catch {

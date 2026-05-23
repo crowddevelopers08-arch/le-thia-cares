@@ -26,11 +26,6 @@ export function Footer() {
       >
         {/* Brand column */}
         <div className="space-y-5 sm:col-span-2 md:col-span-1">
-          <img
-            alt="Le Thia Cares Logo"
-            className="h-14 w-auto"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDULIs-D-ozw3cg59e8NKcZgP0C881paksA5k47FsOo62Tk72Ypf-eio4E5T74wI_YC8dzsLzv-Y1aWbCFh3g9iyEDYkZn8_Ww13KuqSH7lh1Hk7vLV-N5V5M0dqMu5kq8LoOReSG7LdVN8YjETzcY6dIK_KcxI0sFMRUBPrlvdSq5rpnlQ0sSt-IMWysouG-pMsUyXi5kr3vzLc1Xmke-OS-mqw3BEzj-MBZBYtHmtag2yqU8P1U-scdpDtndb4nyImNF9Yo2NGKfo"
-          />
           <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-[#492e3b]">
             Skin · Hair · Slimming · Laser
           </p>
