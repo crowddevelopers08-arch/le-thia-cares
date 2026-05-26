@@ -13,6 +13,7 @@ const otherBranches = [
   'Salem',
   'Erode',
   'Tirupur',
+  'Kochi',
 ];
 
 export function Footer() {
@@ -109,7 +110,7 @@ export function Footer() {
 
       {/* Copyright bar */}
       <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-4 border-t border-[#d2c3c71a] px-4 py-6 sm:flex-row sm:px-6 md:px-[80px]">
-        <p className="text-[13px] italic text-[#4e444899]">© 2026 Le Thia Cares Medical Aesthetics. All rights reserved.</p>
+        <p className="text-[13px] italic text-[#4e444899]">© 2026 Le Thia Cares. All rights reserved.</p>
         <div className="flex gap-6 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#4e4448cc]">
           <a className="transition-colors hover:text-[#492e3b]" href="/privacy-policy">Privacy Policy</a>
         </div>
