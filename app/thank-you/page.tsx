@@ -1,4 +1,5 @@
 ﻿import Link from 'next/link';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'Thank You | Le Thia Cares',
@@ -130,6 +131,17 @@ export default function ThankYouPage() {
           © 2026 Le Thia Cares Medical Aesthetics. All rights reserved.
         </p>
       </footer>
+
+      {/* Google Ads Conversion Event Script */}
+      <Script id="google-ads-conversion" strategy="afterInteractive">
+        {`
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17425479208/HZA8CPiu6LQcEKjsjvVA',
+            'value': 1.0,
+            'currency': 'INR'
+          });
+        `}
+      </Script>
     </main>
   );
 }
