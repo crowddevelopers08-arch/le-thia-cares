@@ -132,11 +132,11 @@ export default function ThankYouPage() {
         </p>
       </footer>
 
-      {/* Google Ads Conversion Event Script */}
-      <Script id="google-ads-conversion" strategy="afterInteractive">
+      {/* Google Ads Conversion Event Script - Lead Form - Chennai */}
+      <Script id="google-ads-conversion-chennai" strategy="afterInteractive">
         {`
           gtag('event', 'conversion', {
-            'send_to': 'AW-17425479208/HZA8CPiu6LQcEKjsjvVA',
+            'send_to': 'AW-17425479208/gKzBCKall8EcEKjsjvVA',
             'value': 1.0,
             'currency': 'INR'
           });
